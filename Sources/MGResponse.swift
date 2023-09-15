@@ -12,7 +12,7 @@ protocol MGResponseType {
     var data: Data { get }
 }
 
-struct MGResponse: MGResponseType, CustomStringConvertible, Equatable{
+public struct MGResponse: MGResponseType, CustomStringConvertible, Equatable{
     
     let statusCode: Int
     

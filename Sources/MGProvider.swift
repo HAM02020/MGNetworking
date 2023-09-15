@@ -7,14 +7,22 @@
 
 import Foundation
 
-protocol MGProvicerProtocol {
+public protocol MGProviderProtocol {
     associatedtype Target
+    
     func request(_ target: Target) async -> Result<MGResponse,MGError>
+    
+    init()
 }
 
-class MGProvicer<Target: MGTargetType>: MGProvicerProtocol {
+public class MGProvider<Target: MGTargetType>: MGProviderProtocol {
     
-    func request(_ target: Target) async -> Result<MGResponse, MGError> {
+    public required init(){
+        
+    }
+    
+    @discardableResult
+    public func request(_ target: Target) async -> Result<MGResponse, MGError> {
         let url = target.url
         let path = target.path
         let method = target.method

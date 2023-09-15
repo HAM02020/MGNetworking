@@ -8,12 +8,12 @@
 import Foundation
 import Alamofire
 
-protocol AFManagerProtrol: AnyObject{
+protocol AFManagerProtrol {
     func request(url: String, path: String, parameters: Parameters, method: Method, headers: Headers) async -> Result<MGResponse, MGError>
     func uploadMultipartFormData(url: String, path: String, multipartFormData: MultipartFormData, method: Method, headers: Headers, uploadProgress: UploadProgressCallback?) async -> Result<MGResponse, MGError>
 }
 
-class AFManager: AFManagerProtrol{
+struct AFManager: AFManagerProtrol{
     
     static let shared = AFManager()
     

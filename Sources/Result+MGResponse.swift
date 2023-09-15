@@ -8,9 +8,9 @@
 import Foundation
 
 
-extension Result where Success == MGResponse {
+public extension Result where Success == MGResponse {
     
-    private func tryParseResultToModel<T: Decodable>() throws -> T {
+    func tryParseResultToModel<T: Decodable>(model: T.Type? = nil) throws -> T {
         switch self{
         case .success(let response):
             return try response.parseDataToModel()
